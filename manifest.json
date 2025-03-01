@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Jupyter Notebook Viewer",
+    "version": "1.0",
+    "description": "View Jupyter Notebook files (.ipynb) as rendered notebooks in the browser.",
+    "permissions": ["activeTab"],
+    "host_permissions": ["*://*/*.ipynb"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*.ipynb"],
+        "js": ["marked.min.js", "highlight.min.js", "content.js"],
+        "css": ["style.css"]
+      }
+    ]
+  }
+  
