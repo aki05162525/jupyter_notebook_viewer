@@ -1,4 +1,6 @@
-/* 全体の基本スタイル */
+/* ===============================
+ * 1. ページ全体とNotebookレイアウト
+ * =============================== */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -6,14 +8,13 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Notebook全体のレイアウト */
 #notebook-container {
   display: flex;
   flex-direction: row;
   padding: 20px;
 }
 
-/* 左側の目次 */
+/* 目次(TOC)エリア */
 #toc-container {
   width: 250px;
   margin-right: 20px;
@@ -23,16 +24,13 @@ body {
   overflow-y: auto;
   max-height: 90vh;
 }
-
 #toc-container ul {
   list-style: none;
   padding: 0;
 }
-
 #toc-container li {
   margin-bottom: 5px;
 }
-
 #toc-container li.h1 {
   font-weight: bold;
 }
@@ -43,7 +41,7 @@ body {
   margin-left: 20px;
 }
 
-/* Notebookコンテンツ */
+/* Notebookコンテンツエリア */
 #notebook-content {
   flex: 1;
   background-color: #ffffff;
@@ -53,7 +51,9 @@ body {
   max-height: 90vh;
 }
 
-/* セルのスタイル */
+/* ===============================
+   * 2. Notebookセルのスタイル
+   * =============================== */
 .cell {
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
@@ -62,7 +62,7 @@ body {
   border-bottom: none;
 }
 
-/* コードセルヘッダー */
+/* コードセルヘッダー (In [n]) */
 .cell-header {
   font-family: monospace;
   color: #555;
@@ -92,4 +92,50 @@ body {
   color: red;
   padding: 20px;
   text-align: center;
+}
+
+/* ===============================
+   * 3. Highlight.js (Colab風配色)
+   * =============================== */
+
+/* 
+     行間・折り返し・背景色をまとめて指定。
+     display:block & white-space:pre によりコードが崩れにくくなります。
+  */
+pre code.hljs,
+.hljs {
+  display: block;
+  white-space: pre; /* 改行をそのまま反映（折り返ししない） */
+  overflow-x: auto; /* 横スクロール可 */
+  line-height: 1.5; /* 行間をゆったり */
+  font-size: 14px; /* コードの文字サイズ */
+  font-family: Consolas, "Courier New", monospace;
+  background: #fafafa !important; /* Colab風の明るい背景 */
+  color: #24292e !important; /* 標準文字色 */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* コメントやキーワードなど、色分けしたい要素 */
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d; /* グレー寄り */
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name {
+  color: #d73a49; /* 赤系 */
+  font-weight: bold;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #032f62; /* 濃い青 */
 }

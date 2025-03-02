@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Jupyter Notebook Viewer",
+    "name": "IPYNB Viewer",
     "version": "1.0",
-    "description": "View Jupyter Notebook files (.ipynb) as rendered notebooks in the browser.",
+    "description": ".ipynb ファイルを直接ブラウザで開いたときにNotebookの内容を見やすく整形してくれる拡張機能です。",
     "permissions": ["activeTab"],
     "host_permissions": ["*://*/*.ipynb"],
     "background": {

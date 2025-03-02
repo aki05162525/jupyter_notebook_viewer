@@ -55,10 +55,10 @@ function renderNotebook(notebook) {
   const container = document.createElement("div");
   container.id = "notebook-container";
 
-  // JSONダウンロードボタン
+  // ipynbファイルダウンロードボタン
   const downloadBtn = document.createElement("button");
   downloadBtn.id = "download-json-btn";
-  downloadBtn.textContent = "JSONをダウンロード";
+  downloadBtn.textContent = "ipynbファイルをダウンロード";
   downloadBtn.addEventListener("click", () => {
     downloadJSON(notebook);
   });
